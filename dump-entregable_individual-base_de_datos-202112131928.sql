@@ -56,7 +56,7 @@ CREATE TABLE `note` (
   `DELETED` tinyint(4) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `notas_FK` (`USER_ID`),
-  CONSTRAINT `notas_FK` FOREIGN KEY (`USER_ID`) REFERENCES `users` (`id`)
+  CONSTRAINT `note_FK` FOREIGN KEY (`USER_ID`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -82,10 +82,10 @@ CREATE TABLE `note_category` (
   `NOTED_ID` int(11) NOT NULL,
   `CATEGORY_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
-  KEY `notas_categorias_FK` (`NOTED_ID`),
-  KEY `notas_categorias_FK_1` (`CATEGORY_ID`),
-  CONSTRAINT `notas_categorias_FK` FOREIGN KEY (`NOTED_ID`) REFERENCES `note` (`id`),
-  CONSTRAINT `notas_categorias_FK_1` FOREIGN KEY (`CATEGORY_ID`) REFERENCES `category` (`id`)
+  KEY `note_category_FK` (`NOTED_ID`),
+  KEY `note_category_FK_1` (`CATEGORY_ID`),
+  CONSTRAINT `note_category_FK` FOREIGN KEY (`NOTED_ID`) REFERENCES `note` (`id`),
+  CONSTRAINT `note_category_FK_1` FOREIGN KEY (`CATEGORY_ID`) REFERENCES `category` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
